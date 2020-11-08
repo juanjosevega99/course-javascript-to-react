@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template literals - expressions</title>
+</head>
+<body>
+    <script>
+        const name = 'Juan'
+        console.log(`My name is ${name}`)
+        console.log(`My name is ${21}`)
+        console.log(`This is the path to ${'full stack 🔥'}`)
+        console.log(`My last name is  ${x = 'Vega'}`)
+        console.log(`What xd ${(function name() {
+            return ':v'
+        }) ()}`)
+        console.log(`haaaaaa ${(function () {
+            return ':v'
+        }) ()}`)
+        console.log(`arrow ${( () => { return ':v' }) () }`)
+        console.log(`ternary ${true && 'Yeah!'}`)
+        console.log(`ternary ${false ? 'Juan true' : 'Juan false'}`)
+        console.log(`ternary ${['a', 'b'].map(lyrics => `${lyrics}-styled`)}`)
+    </script>
+</body>
+</html>
