@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShortHand Property Names</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <main>
+      <h1>
+        The best. <br />
+        To the bests
+      </h1>
+      <div class="hero">
+        <div class="wrapper">
+          <div class="hero-content">
+            <div class="mac"></div>
+            <div class="app">
+              <p>
+                <strong> Price: </strong>
+                <span id="price">-</span>
+              </p>
+              <p>
+                <strong> Offer price: </strong>
+                <span id="offer">-</span>
+              </p>
+              <p>
+                <strong> Final price </strong>
+                <span id="final-price">-</span>
+              </p>
+              <button class="button" id="make-offer">Haggle</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const price = 2700;
+      const macBook = {
+        price,
+        get finalPrice() {
+          return this.price * 1.16;
+        },
+        set offer(offer) {
+          this.price -= offer;
+        },
+        *discount(offer) {
+          let price = this.finalPrice;
+          while (true) {
+            yield (price -= offer);
+          }
+        },
+      };
+
+      window.price.textContent = macBook.price;
+      macBook.offer = 500;
+      window.offer.textContent = macBook.price;
+      window["final-price"].textContent = macBook.finalPrice;
+
+      const makeAnOffer = macBook.discount(15);
+      window["make-offer"].addEventListener("click", () => {
+        window["final-price"].textContent = makeAnOffer.next().value;
+      });
+    </script>
+  </body>
+</html>
